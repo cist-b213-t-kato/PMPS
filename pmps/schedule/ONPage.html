@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="ja" xmlns:wicket="http://wicket.apache.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ホームページのガワ</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<button wicket:id="homeLink" class="btn btn-primary"
+		style="position: absolute; left: 0px; top: 0px; width: 100px; height: 50px">HOME</button>
+
+
+
+	<div style="position: relative; top: 0px; left: 600px;">
+		<font size="200">PMPS</font>
+	</div>
+
+	<button wicket:id="SignOutLink" class="btn btn-primary"
+		style="position: absolute; right: 0px; top: 0px; width: 100px; height: 50px">ログアウト</button>
+
+	<button class="btn btn-info"
+		style="position: absolute; right: 100px; top: 60px; width: 100px; height: 50px">連絡</button>
+
+	<button class="btn btn-success"
+		style="position: absolute; right: 210px; top: 60px; width: 100px; height: 50px">予定</button>
+
+	<button wicket:id="ActivitySmallLink" class="btn btn-warning"
+		style="position: absolute; right: 320px; top: 60px; width: 100px; height: 50px">活動履歴</button>
+
+	<button wicket:id="NotReadLink" class="btn btn-info"
+		style="position: relative; left: 100px; top: 100px; width: 500px; height: 100px">連絡</button>
+	<br>
+	<button wicket:id="ActivityLink" class="btn btn-warning"
+		style="position: relative; left: 100px; top: 110px; width: 500px; height: 100px">活動履歴へ</button>
+
+	<div style="position: relative; top: 120px; left: 50px;">
+		<font size="200" class="text-success">今週のスケジュール</font>
+	</div>
+
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-bordered"
+				style="position: absolute; left: 0px; top: 500px;" border="1"
+				align="center">
+
+				<thead>
+					<tr>
+						<th>月</th>
+						<th>火</th>
+						<th>水</th>
+						<th>木</th>
+						<th>金</th>
+						<th>土</th>
+						<th>日</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>プロメン</td>
+						<td>徹夜</td>
+						<td>掃除</td>
+						<td>は？</td>
+						<td>将軍</td>
+						<td>睡眠</td>
+						<td>惰眠</td>
+
+					</tr>
+					<tr>
+						<th scope="row">1</th>
+						<td>煌木 太郎</td>
+						<td>taro.kirameki@example.com</td>
+						<td>09011112222</td>
+						<td>アーアアー</td>
+						<td>ヘルシェイク矢野</td>
+						<td>オルガ・イツカ</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</body>
+</html>
