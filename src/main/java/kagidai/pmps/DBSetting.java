@@ -1,7 +1,7 @@
 package kagidai.pmps;
 
 public class DBSetting {
-	public static String url = "jdbc:postgresql://localhost:5432/PMPS";
+	public static String url = "jdbc:postgresql://localhost:5432/pmps";
 	public static String user = "postgres";
 	public static String pass = "postgres";
 
