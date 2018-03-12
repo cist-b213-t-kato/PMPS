@@ -1,35 +1,46 @@
-<!--  <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
-<meta charset="UTF-8">
-<title>ログアウト</title>
-</head>
-<body>
-	<h1>ログアウトしました</h1>
-	<button wicket:id=homeLink>ホームページへ</button>
-</body>
-</html>
--->
+<meta charset="UTF-8" />
 
-<!DOCTYPE html>
-<html lang="ja" xmlns:wicket="http://wicket.apache.org">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Sample</title>
-<!-- BootstrapのCSS読み込み -->
+<title>ログアウトページ</title>
+<!-- 	↓Boostrap,jqueryの読み込み部分1 -->
 <link
-	href="C:/Users/junpei/Desktop/pleiades-4.7.1-java-win-64bit_20171019/pleiades/workspace/pmps/src/main/java/pmps/schedule/css/bootstrap-theme.min.css"
-	rel="stylesheet">
-<!-- jQuery読み込み -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- BootstrapのJS読み込み -->
-<script
-	src="C:/Users/junpei/Desktop/pleiades-4.7.1-java-win-64bit_20171019/pleiades/workspace/pmps/src/main/java/pmps/schedule/js/bootstrap.min.js"></script>
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
+
 </head>
+
+<!-- ↓CSS -->
+<style>
+div1 {
+	font-family: sans-serif;
+}
+</style>
+<!-- ↑CSS  -->
+
 <body>
-	<button wicket:id=homeLink>ログインページへ</button>
+
+
+	<div1 style="position: relative; top: 0px; left: 600px;"> <font
+		size="200">PMPS</font> </div1>
+
+
+
+
+	<h1>ログアウトしました。</h1>
+
+	<button class="btn btn-primary" wicket:id="LogInLink">再ログイン</button>
+
+	<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>

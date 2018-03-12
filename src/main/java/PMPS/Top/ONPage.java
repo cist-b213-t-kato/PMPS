@@ -20,8 +20,7 @@ import PMPS.Schedule.Schedule;
 import PMPS.Schedule.ScheduleDAO;
 import PMPS.activity.YearListPage;
 
-
-public class ONPage extends WebPage{
+public class ONPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
 	public ONPage() {
@@ -36,51 +35,51 @@ public class ONPage extends WebPage{
 			public List<STR> getObject() {
 				ScheduleDAO sdao = new ScheduleDAO();
 				Session session = getSession();
-				UserAccount user = (UserAccount)session.getAttribute("user");
+				UserAccount user = (UserAccount) session.getAttribute("user");
 				List<STR> sList = new ArrayList<STR>();
 				List<Schedule> todayList = new ArrayList<>();
 				List<Schedule> tommolowList = new ArrayList<>();
 				List<Schedule> tttList = new ArrayList<>();
 
-				LocalDateTime ldt =LocalDateTime.now();
-			    todayList = sdao.select(user.getUserId(), ldt.getYear(), ldt.getMonthValue(),ldt.getDayOfMonth() );
+				LocalDateTime ldt = LocalDateTime.now();
+				todayList = sdao.select(user.getUserId(), ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
 
-			    Calendar c2day = Calendar.getInstance();
-			    c2day.set(ldt.getYear(), ldt.getMonthValue(),ldt.getDayOfMonth());
-			    c2day.add(Calendar.DAY_OF_MONTH, 1);
-			    tommolowList = sdao.select(user.getUserId(), c2day.get(Calendar.YEAR), c2day.get(Calendar.MONTH),c2day.get(Calendar.DAY_OF_MONTH) );
+				Calendar c2day = Calendar.getInstance();
+				c2day.set(ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
+				c2day.add(Calendar.DAY_OF_MONTH, 1);
+				tommolowList = sdao.select(user.getUserId(), c2day.get(Calendar.YEAR), c2day.get(Calendar.MONTH),
+						c2day.get(Calendar.DAY_OF_MONTH));
 
-			    Calendar c3day = Calendar.getInstance();
-			    c3day.set(ldt.getYear(), ldt.getMonthValue(),ldt.getDayOfMonth());
-			    c3day.add(Calendar.DAY_OF_MONTH, 2);
-			    tttList = sdao.select(user.getUserId(), c3day.get(Calendar.YEAR), c3day.get(Calendar.MONTH),c3day.get(Calendar.DAY_OF_MONTH) );
+				Calendar c3day = Calendar.getInstance();
+				c3day.set(ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
+				c3day.add(Calendar.DAY_OF_MONTH, 2);
+				tttList = sdao.select(user.getUserId(), c3day.get(Calendar.YEAR), c3day.get(Calendar.MONTH),
+						c3day.get(Calendar.DAY_OF_MONTH));
 
-			    todayList=swap(todayList);
-			    tommolowList= swap(tommolowList);
-			    tttList = swap(tttList);
+				todayList = swap(todayList);
+				tommolowList = swap(tommolowList);
+				tttList = swap(tttList);
 
-			    int tmp=Math.max(todayList.size(),Math.max(tommolowList.size(),tttList.size()));
+				int tmp = Math.max(todayList.size(), Math.max(tommolowList.size(), tttList.size()));
 
-			    for(int i=0;i<tmp;i++){
-			    	STR str = new STR();
-			    	if(todayList.size()>i){
-			    		str.setToday(getRow(todayList.get(i)));
-			    	}
-			    	if(tommolowList.size()>i){
-			    		str.setTommolow(getRow(tommolowList.get(i)));
-			    	}
+				for (int i = 0; i < tmp; i++) {
+					STR str = new STR();
+					if (todayList.size() > i) {
+						str.setToday(getRow(todayList.get(i)));
+					}
+					if (tommolowList.size() > i) {
+						str.setTommolow(getRow(tommolowList.get(i)));
+					}
 
-			    	if(tttList.size()>i){
-			    		str.setTtt(getRow(tttList.get(i)));
-			    	}
-			    	sList.add(str);
-			    }
+					if (tttList.size() > i) {
+						str.setTtt(getRow(tttList.get(i)));
+					}
+					sList.add(str);
+				}
 
 				return sList;
 			}
 		};
-
-
 
 		Link<Void> ActivityLink = new Link<Void>("ActivityLink") {
 			/**
@@ -135,7 +134,7 @@ public class ONPage extends WebPage{
 		};
 		add(NotReadLink);
 
-		ListView< STR >scheduleView = new ListView< STR >("schedule",ScheduleModel) {
+		ListView<STR> scheduleView = new ListView<STR>("schedule", ScheduleModel) {
 			/**
 			 *
 			 */
@@ -143,28 +142,40 @@ public class ONPage extends WebPage{
 
 			@Override
 			protected void populateItem(ListItem<STR> item) {
-				item.add(new Label("content",item.getModelObject().getToday()));
-				item.add(new Label("content2",item.getModelObject().getTommolow()));
-				item.add(new Label("content3",item.getModelObject().getTtt()));
+				item.add(new Label("content", item.getModelObject().getToday()));
+				item.add(new Label("content2", item.getModelObject().getTommolow()));
+				item.add(new Label("content3", item.getModelObject().getTtt()));
 			}
 		};
 		add(scheduleView);
-	}
-	private String getRow(Schedule s){
-		return "("+s.getStartTime()+"~"+s.getEndTime()+")"+s.getContent();
+
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
 	}
 
-	private List<Schedule> swap(List<Schedule> list){
-		if(!list.isEmpty() || list.size()==1){
-		    for(int i = 1;i<list.size();i++){
-		    	if(Integer.parseInt(list.get(i-1).getStartTime().substring(0,2)) >
-		    	Integer.parseInt(list.get(i).getStartTime().substring(0,2))){
-		    		Schedule tmp = list.get(i-1);
-		    		list.set(i-1, list.get(i));
-		    		list.set(i, tmp);
-		    	}
-		    }
-		    }
-		return list;
+	private String getRow(Schedule s) {
+		return "(" + s.getStartTime() + "~" + s.getEndTime() + ")" + s.getContent();
 	}
+
+	private List<Schedule> swap(List<Schedule> list) {
+		if (!list.isEmpty() || list.size() == 1) {
+			for (int i = 1; i < list.size(); i++) {
+				if (Integer.parseInt(list.get(i - 1).getStartTime().substring(0, 2)) > Integer
+						.parseInt(list.get(i).getStartTime().substring(0, 2))) {
+					Schedule tmp = list.get(i - 1);
+					list.set(i - 1, list.get(i));
+					list.set(i, tmp);
+				}
+			}
+		}
+		return list;
+
+	}
+
 }
