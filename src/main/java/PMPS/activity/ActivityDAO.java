@@ -68,10 +68,10 @@ public class ActivityDAO {
 		return list;
 	}
 
-	//年度を引数に活動履歴を検索（一覧を表で表示するときに使用）
+	//活動履歴をすべて表示
 	public static List<ActivityBean> selectAll() {
 
-		String sql = "SELECT * FROM activity";
+		String sql = "SELECT * FROM activity ORDER BY year desc";
 
 		List<ActivityBean> list = new ArrayList<>();
 
