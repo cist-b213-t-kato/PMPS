@@ -10,7 +10,7 @@ public class SignOutPage extends WebPage{
 	private static final long serialVersionUID = 3238440560638680904L;
 
 	public SignOutPage() {
-		Link<Void> homeLink = new Link<Void>("homeLink") {
+		Link<Void> LogInLink = new Link<Void>("LogInLink") {
 			/**
 			 *
 			 */
@@ -22,7 +22,7 @@ public class SignOutPage extends WebPage{
 				setResponsePage(new LogInPage());
 			}
 		};
-		add(homeLink);
+		add(LogInLink);
 	}
 
 }
