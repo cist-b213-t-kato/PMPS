@@ -1,5 +1,7 @@
 package PMPS.Communication;
 
+import java.util.List;
+
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
@@ -9,6 +11,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.component.IRequestablePage;
 
 import PMPS.UserAccount;
+import PMPS.UserAccountDAO;
 import PMPS.Top.ONPage;
 
 public class InsertBulletinPage extends WebPage{
@@ -43,13 +46,28 @@ public class InsertBulletinPage extends WebPage{
 				UserAccount u = (UserAccount)session.getAttribute("user");
 				b.setUserId(u.getUserId());
 				UserPost up = new UserPost();
-				up.setUserId(receiverUserIdModel.getObject());
 
 				BulletinDAO bdao = new BulletinDAO();
+				UserAccountDAO uadao = new UserAccountDAO();
+				UserPostDAO udao = new UserPostDAO();
 				bdao.insert(b);
 				up.setBulletinId(bdao.selectBulletinId());
-				UserPostDAO udao = new UserPostDAO();
-				udao.insert(up);
+				if(receiverUserIdModel.getObject().equals("2年") || receiverUserIdModel.getObject().equals("２年")){
+					List<String> list = uadao.selectGrade(2);
+					for(String id : list){
+						up.setUserId(id);
+						udao.insert(up);
+					}
+				}else if(receiverUserIdModel.getObject().equals("3年") || receiverUserIdModel.getObject().equals("３年")){
+					List<String> list = uadao.selectGrade(3);
+					for(String id : list){
+						up.setUserId(id);
+						udao.insert(up);
+					}
+				}else{
+					up.setUserId(receiverUserIdModel.getObject());
+					udao.insert(up);
+				}
 				setResponsePage((IRequestablePage) new ONPage());
 			}
 		};

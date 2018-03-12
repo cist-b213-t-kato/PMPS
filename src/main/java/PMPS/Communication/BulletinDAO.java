@@ -39,6 +39,7 @@ public class BulletinDAO {
 		return b;
 	}
 
+
 	public void insert(Bulletin b){
 		String sql = "insert into bulletin(subject,maintext,userid) values(?,?,?)";
 		try(Connection conn = DriverManager.getConnection(DBsetting.URL,DBsetting.USER,DBsetting.PASSWORD);

@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserAccountDAO {
 
@@ -42,6 +44,24 @@ public class UserAccountDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public List<String> selectGrade(int grade){
+		String sql = "select * from useraccount where grade = ?";
+		List<String> idList = new ArrayList<String>();
+
+		try(Connection conn = DriverManager.getConnection(DBsetting.URL,DBsetting.USER,DBsetting.PASSWORD);
+				PreparedStatement statement = conn.prepareStatement(sql);
+				){
+				statement.setInt(1,grade);
+				ResultSet resultSet = statement.executeQuery();
+			    if(resultSet.next()){
+			    	idList.add(resultSet.getString("userid"));
+			    }
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return idList;
 	}
 
 	public UserAccount selectUser(String userId) {
