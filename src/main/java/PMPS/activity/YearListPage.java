@@ -41,6 +41,14 @@ public class YearListPage extends WebPage {
 			}
 		};
 		add(YearListView);
+		
+		Link<Void> AllView = new Link<Void>("AllActivityLink") {
+			@Override
+			public void onClick() {
+				setResponsePage(new ActivityPage(0));
+			}
+		};
+		add(AllView);
 
 		Link<Void> InsertActivityLink = new Link<Void>("InsertActivityLink") {
 
@@ -51,6 +59,7 @@ public class YearListPage extends WebPage {
 			}
 		};
 		add(InsertActivityLink);
+		
 
 	}
 }

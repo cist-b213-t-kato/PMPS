@@ -19,7 +19,11 @@ public class ActivityPage extends WebPage {
 		ListModel<ActivityBean> listModel = new ListModel<ActivityBean>() {
 			@Override
 			public List<ActivityBean> getObject() {
-				return ActivityDAO.select(year);
+				if (year == 0) {
+					return ActivityDAO.selectAll();
+				} else {
+					return ActivityDAO.select(year);
+				}
 			}
 		};
 
@@ -54,7 +58,6 @@ public class ActivityPage extends WebPage {
 		add(activityListView);
 
 		Link<Void> InsertActivityLink = new Link<Void>("InsertActivityLink") {
-
 
 			@Override
 			public void onClick() {

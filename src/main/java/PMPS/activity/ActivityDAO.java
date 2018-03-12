@@ -68,6 +68,48 @@ public class ActivityDAO {
 		return list;
 	}
 
+	//年度を引数に活動履歴を検索（一覧を表で表示するときに使用）
+	public static List<ActivityBean> selectAll() {
+
+		String sql = "SELECT * FROM activity";
+
+		List<ActivityBean> list = new ArrayList<>();
+
+		try (Connection conn = DriverManager.getConnection(DBsetting.URL, DBsetting.USER, DBsetting.PASSWORD);
+				Statement statement = conn.createStatement();
+				ResultSet resultSet = statement.executeQuery(sql);) {
+
+			while (resultSet.next()) {
+
+				ActivityBean bean = new ActivityBean();
+
+				int projectid = resultSet.getInt("projectid");
+				String projectname = resultSet.getString("projectname");
+				String leader = resultSet.getString("leader");
+				String term = resultSet.getString("term");
+				String outline = resultSet.getString("outline");
+				String link = resultSet.getString("link");
+				int grade = resultSet.getInt("grade");
+
+				bean.setProjectid(projectid);
+				bean.setProjectname(projectname);
+				bean.setLeader(leader);
+				bean.setTerm(term);
+				bean.setOutline(outline);
+				bean.setLink(link);
+				bean.setGrade(grade);
+
+				list.add(bean);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
 	//年度をリストに入れて表示
 	public static List<Integer> selectYear() {
 		String sql = "SELECT year FROM activity GROUP BY year ORDER BY year desc";
