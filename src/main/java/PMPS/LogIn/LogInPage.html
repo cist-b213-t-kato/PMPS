@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
-  <meta charset="UTF-8"/>
-  <title>LogInPage</title>
+<meta charset="UTF-8" />
+
+<title>LogInPage</title>
+<!-- ↓テンプレ部分その１ -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
 </head>
+<style>
+div1 {
+	font-family: sans-serif;
+}
+</style>
+<!-- ↑テンプレ部分その1 -->
 <body>
-  <h1>このページはログインページです。</h1>
-  <h2>この入力フォームでアカウントIDとパスワードを入力してください。</h2>
-<form wicket:id="form">
-  アカウントID：<input type="text" wicket:id="userId"><br>
-  パスワード　：<input type="text" wicket:id="password">
-  <button type="submit">データ送信</button>
-</form>
+<!-- ↓テンプレ部分その２ -->
+	<div1 style="position: relative; top: 0px; left: 600px;"> <font
+		size="200">PMPS</font> </div1>
+<!-- ↑テンプレ部分その2 -->
+
+	<div>
+		<h1>このページはログインページです。</h1>
+		<h2>この入力フォームでアカウントIDとパスワードを入力してください。</h2>
+	</div>
+
+	<form wicket:id="form" class="form-horizontal">
+		<div class="form-group" style="position: absolute; left: 20px;">
+			アカウントID：<input type="text" class="form-control" wicket:id="userId"><br>
+			パスワード：<input type="text" class="form-control" wicket:id="password"><br>
+			<button type="submit" class="btn btn-primary ">データ送信</button>
+		</div>
+	</form>
+
+	<!-- ↓テンプレ部分その３ -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑テンプレ部分その３ -->
 </body>
 </html>

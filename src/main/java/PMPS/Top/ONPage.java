@@ -80,18 +80,7 @@ public class ONPage extends WebPage{
 			}
 		};
 
-		Link<Void> homeLink = new Link<Void>("homeLink") {
-			/**
-			 *
-			 */
-			private static final long serialVersionUID = 7123042162371774643L;
 
-			@Override
-			public void onClick() {
-				setResponsePage(new StartPage());
-			}
-		};
-		add(homeLink);
 
 		Link<Void> ActivityLink = new Link<Void>("ActivityLink") {
 			/**
