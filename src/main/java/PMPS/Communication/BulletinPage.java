@@ -6,6 +6,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 
 import PMPS.UserAccount;
+import PMPS.UserAccountDAO;
 import PMPS.Top.ONPage;
 
 public class BulletinPage extends WebPage {
@@ -23,12 +24,18 @@ public class BulletinPage extends WebPage {
 				Bulletin b = bdao.select(bulletinId);
 				UserPostDAO pdao = new UserPostDAO();
 
+
 				Session session = getSession();
 				UserAccount u = (UserAccount) session.getAttribute("user");
 
+
 				if(u!=null){
+					UserAccountDAO udao = new UserAccountDAO();
+					UserAccount ud = (UserAccount) udao.selectUser(b.getUserId());
+					Label senderNameTextLabel = new Label("senderName",ud.getUserName());
 					Label mainTextLabel = new Label("mainText",b.getMainText());
 					add(mainTextLabel);
+					add(senderNameTextLabel);
 					pdao.updateRead(true, bulletinId, u.getUserId());
 				}
 
