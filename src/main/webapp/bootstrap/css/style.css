@@ -1,0 +1,32 @@
+body { padding-top: 70px; }
+
+.btn-unfinished{
+    margin: 5px 0px 5px 0px;
+    background-color: #B1F9D0;
+}
+
+.tabs a {
+   /* �����N���^�u�̂悤�Ɍ����� */
+   display: block;
+   width: 100px;
+   float: left;
+   text-align: center;
+   font-size:24px;
+}
+
+.tabs,/*  .tabs li,  */.tabs li a {
+    float: left;
+    padding:3px;
+    margin-right:2px;
+}
+
+.tab-content {
+    clear: both;
+    overflow: hidden;
+
+}
+
+.tab-back {
+    background-color: #808080;
+	/* transition: background-color 0.5s; */
+}
