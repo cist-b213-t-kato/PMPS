@@ -60,6 +60,14 @@
 			<version>${log4j.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/net.arnx/jsonic -->
+<dependency>
+    <groupId>net.arnx</groupId>
+    <artifactId>jsonic</artifactId>
+    <version>1.2.7</version>
+</dependency>
+
+
 		<!-- JUNIT DEPENDENCY FOR TESTING -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -82,6 +90,14 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>9.4.1212.jre7</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.wicket/wicket-extensions -->
+<dependency>
+    <groupId>org.apache.wicket</groupId>
+    <artifactId>wicket-extensions</artifactId>
+    <version>7.10.0</version>
+</dependency>
+
 
 		<dependency>
 			<groupId>org.webjars</groupId>

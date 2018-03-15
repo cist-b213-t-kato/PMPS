@@ -18,6 +18,7 @@ import PMPS.Communication.CommunicationNotReadPage;
 import PMPS.LogIn.SignOutPage;
 import PMPS.Schedule.Schedule;
 import PMPS.Schedule.ScheduleDAO;
+import PMPS.Schedule.SchedulePage;
 import PMPS.activity.YearListPage;
 
 public class ONPage extends WebPage {
@@ -133,6 +134,19 @@ public class ONPage extends WebPage {
 			}
 		};
 		add(NotReadLink);
+
+		Link<Void> ScheduleLink = new Link<Void>("ScheduleLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 8857405506843942073L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SchedulePage());
+			}
+		};
+		add(ScheduleLink);
 
 		ListView<STR> scheduleView = new ListView<STR>("schedule", ScheduleModel) {
 			/**
