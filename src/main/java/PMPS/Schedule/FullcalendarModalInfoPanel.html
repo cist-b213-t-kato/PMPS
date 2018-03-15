@@ -7,8 +7,13 @@
 	<wicket:panel>
 		<div wicket:id="feedback"></div>
 		<form wicket:id="form">
-			内容:<input type="text" wicket:id="content">
-			<button type ="button" wicket:id="submitButton">送信</button>
+			内容:<input type="text" wicket:id="content"><br>
+			<select style="width: 50px" wicket:id="starthourchoice"></select>時
+			<select style="width: 50px" wicket:id="startminuteschoice"></select>分から　
+			<select style="width: 50px" wicket:id="endhourchoice"></select>時
+			<select style="width: 50px" wicket:id="endminuteschoice"></select>分まで<br>
+
+			<button type="submit" wicket:id="submitButton">送信</button>
 		</form>
 	</wicket:panel>
 </body>

@@ -55,6 +55,7 @@ public class InsertActivityPage extends WebPage {
 				ActivityDAO.insert(bean);
 				setResponsePage( new ActivityDetailsPage());
 			}
+
 		};
 		add(form);
 
