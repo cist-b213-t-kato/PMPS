@@ -26,6 +26,12 @@ import PMPS.define.FullCalendarDefine.METHOD;
 import PMPS.define.FullCalendarDefine.VIEW;
 import net.arnx.jsonic.JSON;
 
+/**
+ *
+ * <p>フルカレンダーの核となるクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class FullcalendarPanel extends Panel {
 
 	private static final long serialVersionUID = 6124217131174484518L;

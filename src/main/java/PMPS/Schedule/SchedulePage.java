@@ -5,6 +5,12 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 
+/**
+ *
+ * <p>SchedulePageを読み込むクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class SchedulePage extends WebPage{
 
 	private static final long serialVersionUID = -3209326947790638454L;

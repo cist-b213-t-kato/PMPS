@@ -5,6 +5,12 @@ import java.util.List;
 
 import net.arnx.jsonic.JSON;
 
+/**
+ *
+ * <p>Scheduleをフルカレンダーで扱えるようにしたクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class Event implements Serializable{
 
 	private static final long serialVersionUID = -7567829977327707446L;
@@ -87,24 +93,31 @@ public class Event implements Serializable{
 		return serialVersionUID;
 	}
 
-	/*
-	 * オブジェクトをJSON形式で出力する
+	/**
+	 * <p>オブジェクトをJSON形式で出力するメソッドです</p>
+	 * @param event
+	 * @return String
 	 */
 	public String EncodeObjToJson(Event event) {
         String jsonStr = JSON.encode(event);
         return jsonStr;
     }
 
-	/*
-	 * リストをJSON形式で出力する
+	/**
+	 *
+	 * <p>リストをJSON形式で出力するメソッドです</p>
+	 * @param event
+	 * @return String
 	 */
 	public String EncodeListToJson(List<Event> event) {
         String jsonStr = JSON.encode(event);
         return jsonStr;
     }
 
-	/*
-	 * 時間の文字列をfullcalendarに対応するように変換して返す
+	/**
+	 * <p>時間の文字列をfullcalendarに対応するように変換して返すメソッドです</p>
+	 * @param time
+	 * @return String
 	 */
 	public String encodeToFullcalendarTime(String time) {
         StringBuilder sb = new StringBuilder(time);

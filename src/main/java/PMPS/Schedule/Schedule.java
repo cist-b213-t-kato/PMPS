@@ -1,5 +1,11 @@
 package PMPS.Schedule;
 
+/**
+ *
+ * <p>予定の情報が詰まったクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class Schedule {
 	private int scheduleId;
 	private int year;
