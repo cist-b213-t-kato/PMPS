@@ -82,6 +82,19 @@ public class ONPage extends WebPage {
 			}
 		};
 
+		Link<Void> NotReadLink = new Link<Void>("NotReadLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 8857405506843942073L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new CommunicationNotReadPage());
+			}
+		};
+		add(NotReadLink);
+
 		Link<Void> ActivityLink = new Link<Void>("ActivityLink") {
 			/**
 			 *
@@ -94,6 +107,45 @@ public class ONPage extends WebPage {
 			}
 		};
 		add(ActivityLink);
+
+		Link<Void> ScheduleLink = new Link<Void>("ScheduleLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 8857405506843942073L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SchedulePage());
+			}
+		};
+		add(ScheduleLink);
+
+		//		↓ここからメニューバー+ロゴ
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
+
+		Link<Void> NotReadSmallLink = new Link<Void>("NotReadSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new CommunicationNotReadPage());
+			}
+		};
+
+		add(NotReadSmallLink);
+
+
 
 		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
 			/**
@@ -109,6 +161,21 @@ public class ONPage extends WebPage {
 
 		add(ActivitySmallLink);
 
+
+		Link<Void> ScheduleSmallLink = new Link<Void>("ScheduleSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SchedulePage());
+			}
+		};
+
+		add(ScheduleSmallLink);
+
 		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
 			/**
 			 *
@@ -121,32 +188,7 @@ public class ONPage extends WebPage {
 			}
 		};
 		add(SignOutLink);
-
-		Link<Void> NotReadLink = new Link<Void>("NotReadLink") {
-			/**
-			 *
-			 */
-			private static final long serialVersionUID = 8857405506843942073L;
-
-			@Override
-			public void onClick() {
-				setResponsePage(new CommunicationNotReadPage());
-			}
-		};
-		add(NotReadLink);
-
-		Link<Void> ScheduleLink = new Link<Void>("ScheduleLink") {
-			/**
-			 *
-			 */
-			private static final long serialVersionUID = 8857405506843942073L;
-
-			@Override
-			public void onClick() {
-				setResponsePage(new SchedulePage());
-			}
-		};
-		add(ScheduleLink);
+		//ここまでメニューバー+ロゴ
 
 		ListView<STR> scheduleView = new ListView<STR>("schedule", ScheduleModel) {
 			/**
@@ -163,14 +205,6 @@ public class ONPage extends WebPage {
 		};
 		add(scheduleView);
 
-		Link<Void> homeLink = new Link<Void>("homeLink") {
-
-			@Override
-			public void onClick() {
-				setResponsePage(new ONPage());
-			}
-		};
-		add(homeLink);
 	}
 
 	private String getRow(Schedule s) {

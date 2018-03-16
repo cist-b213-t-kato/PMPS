@@ -57,26 +57,26 @@ nav ul li {
 		</p>
 		<nav>
 			<ul>
-				<li><a href="#">連絡</a></li>
-				<li><a href="#">スケジュール</a></li>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
 				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
 				<li><a wicket:id="SignOutLink">ログアウト</a></li>
 			</ul>
 		</nav>
 	</header>
 	<!-- ↑メニューバー テンプレ-->
 
-	<form wicket:id=form>
+	<form wicket:id="form" class="form-horizontal">
+	<div class="form-group">
 		<p>概要</p>
-
-
-		<textarea wicket:id="outlineField" cols="50" rows="10"  ></textarea>
+		<textarea wicket:id="outlineField" cols="50" rows="10" class="form-control" style="width:500px;"  ></textarea>
 		<p>成果</p>
-		<textarea wicket:id="achievementField" cols="50" rows="10"></textarea><br>
+		<textarea wicket:id="achievementField" cols="50" rows="10" class="form-control" style="width:500px;"></textarea><br>
 		<p>ひとこと</p>
-		<textarea wicket:id="impressionField" cols="50" rows="10"></textarea><br>
+		<textarea wicket:id="impressionField" cols="50" rows="10" class="form-control" style="width:500px;"></textarea><br>
 		<button type="submit" class="btn btn-primary">追加する</button>
 		<br>
+		</div>
 	</form>
 	<!-- ↓Bootstrap,jquery読み込み部分2 -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

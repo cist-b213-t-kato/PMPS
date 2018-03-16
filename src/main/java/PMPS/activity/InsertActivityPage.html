@@ -2,7 +2,7 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
   <meta charset="UTF-8"/>
-  <title>InsertActivityPage</title>
+  <title>活動履歴追加ページ</title>
   <!-- 	↓Boostrap,jqueryの読み込み部分1 -->
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -52,9 +52,9 @@ nav ul li {
 		</p>
 		<nav>
 			<ul>
-				<li><a href="#">連絡</a></li>
-				<li><a href="#">スケジュール</a></li>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
 				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
 				<li><a wicket:id="SignOutLink">ログアウト</a></li>
 			</ul>
 		</nav>
@@ -62,14 +62,18 @@ nav ul li {
 	<!-- ↑メニューバー テンプレ-->
   <h1>このページは活動履歴追加ページです。</h1>
   <h2>この入力フォームでプロジェクト名と担当者、期間、概要、DriveのURLを入力してください。</h2>
-<form wicket:id="form">
-  プロジェクト名：<input type="text" wicket:id="projectName"><br>
-  担当者：<input type="text" wicket:id="leader"><br>
-  期間：<input type="text" wicket:id="term"><br>
-  概要：<input type="text" wicket:id="outline"><br>
-  GoogleDriveのURL：<input type="text" wicket:id="url"><br>
-   学年：<input type="text" wicket:id="grade"><br>
-  <button type="submit" class="btn btn-primary">次へ</button>
+<form wicket:id="form" class="form-horizontal">
+<div class="form-group">
+
+  プロジェクト名<input type="text" wicket:id="projectName" class="form-control" style="width:200px"><br>
+  担当者<input type="text" wicket:id="leader" class="form-control" style="width:200px"><br>
+  期間<input type="text" wicket:id="term" class="form-control" style="width:200px"><br>
+  概要<input type="text" wicket:id="outline" class="form-control" style="width:200px"><br>
+  GoogleDriveのURL<input type="text" wicket:id="url" class="form-control" style="width:200px"><br>
+   学年<input type="text" wicket:id="grade" class="form-control" style="width:200px"><br>
+  <button type="submit" class="btn btn-primary" >次へ</button>
+
+  </div>
 </form>
 <!-- ↓Bootstrap,jquery読み込み部分2 -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

@@ -14,7 +14,6 @@
 	crossorigin="anonymous">
 <!-- 	↑Boostrap,jqueryの読み込み部分1 -->
 <script>
-
 	window.onload = function() {
 		var hiduke = new Date();
 
@@ -26,8 +25,6 @@
 		document.getElementById("ttt").innerHTML = month + "月" + (day + 2)
 				+ "日";
 	}
-
-
 </script>
 <!-- ↓CSS -->
 <style>
@@ -58,6 +55,13 @@ nav ul li {
 	font-size: 30px;
 }
 /* ↑ロゴ＋メニューバー */
+
+/* ↓ボタンの中のフォントサイズ変更 */
+.buttonfont{
+	font-size:40px
+}
+/* ↑ボタンの中のフォントサイズ変更 */
+
 </style>
 <!-- ↑CSS  -->
 </head>
@@ -65,14 +69,16 @@ nav ul li {
 	<!-- ↓メニューバー テンプレ-->
 	<header>
 		<p>
-			<a wicket:id="homeLink"><img src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"width="100" height="100"></a>
+			<a wicket:id="homeLink"><img
+				src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"
+				width="100" height="100"></a>
 
 		</p>
 		<nav>
 			<ul>
-				<li><a href="#">連絡</a></li>
-				<li><a href="#">スケジュール</a></li>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
 				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
 				<li><a wicket:id="SignOutLink">ログアウト</a></li>
 			</ul>
 		</nav>
@@ -83,17 +89,17 @@ nav ul li {
 
 
 
-
-	<button wicket:id="NotReadLink" class="btn btn-info"
-		style="position: relative; left: 100px; top: 100px; width: 500px; height: 100px">連絡</button>
-	<br>
-	<button wicket:id="ActivityLink" class="btn btn-warning"
-		style="position: relative; left: 100px; top: 110px; width: 500px; height: 100px">活動履歴へ</button>
-	 <br>
-		<button wicket:id="ScheduleLink" class="btn btn-warning"
-		style="position: relative; left: 100px; top: 110px; width: 500px; height: 100px">予定へ</button>
+	<div>
+		<button  wicket:id="NotReadLink" class="buttonfont btn btn-info"
+			style="position: relative; left: 100px; top: 100px; width: 500px; height: 100px" >連絡へ</button>
 		<br>
-
+		<button wicket:id="ActivityLink" class="buttonfont btn btn-warning"
+			style="position: relative; left: 100px; top: 110px; width: 500px; height: 100px">活動履歴へ</button>
+		<br>
+		<button wicket:id="ScheduleLink" class="buttonfont btn btn-success"
+			style="position: relative; left: 100px; top: 120px; width: 500px; height: 100px">予定へ</button>
+		<br>
+	</div>
 	<div style="position: relative; top: 120px; left: 50px;">
 		<font size="200" class="text-success">今後のスケジュール</font>
 	</div>
@@ -104,20 +110,17 @@ nav ul li {
 			<table border="1">
 				<thead>
 					<tr>
-						<th><span id = "today">本日</span></th>
-						<th><span id = "tommolow">明日</span></th>
-						<th><span id = "ttt">明々後日</span></th>
+						<th><span id="today">本日</span></th>
+						<th><span id="tommolow">明日</span></th>
+						<th><span id="ttt">明々後日</span></th>
 					</tr>
 				</thead>
 				<tbody wicket:id="schedule">
-				<tr>
-					<td><span wicket:id="content">本文</span>
-					</td>
-					<td><span wicket:id="content2">本文</span>
-					</td>
-					<td><span wicket:id="content3">本文</span>
-					</td>
-				</tr>
+					<tr>
+						<td><span wicket:id="content">本文</span></td>
+						<td><span wicket:id="content2">本文</span></td>
+						<td><span wicket:id="content3">本文</span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
