@@ -1,5 +1,10 @@
 package PMPS.activity;
 
+/**
+ * <p>活動の詳細データを格納するクラス</p>
+ * @author boc
+ *
+ */
 public class DetailBean {
 
 	private int projectid;

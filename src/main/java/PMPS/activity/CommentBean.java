@@ -2,14 +2,20 @@ package PMPS.activity;
 
 import java.util.Date;
 
+/**
+ * <p>コメントの内容を格納するクラス</p>
+ * @author boc
+ *
+ */
+
 public class CommentBean {
-	
+
 	private int projectid;
 	private String commenttext;
 	private String username;
 	private Date date;
-	
-	
+
+
 	public int getProjectid() {
 		return projectid;
 	}

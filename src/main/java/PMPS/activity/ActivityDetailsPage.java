@@ -6,6 +6,11 @@ import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
+/**
+ * 活動の詳細を入力するページ
+ * @author boc
+ *
+ */
 public class ActivityDetailsPage extends WebPage {
 	IModel<String> outlineModel;
 	IModel<String> achievementModel;

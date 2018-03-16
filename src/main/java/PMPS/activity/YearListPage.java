@@ -9,6 +9,11 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.util.ListModel;
 
+/**
+ * <p>活動履歴ページの最初、年度一覧を表示します</p>
+ * @author boc
+ *
+ */
 public class YearListPage extends WebPage {
 
 
@@ -41,7 +46,7 @@ public class YearListPage extends WebPage {
 			}
 		};
 		add(YearListView);
-		
+
 		Link<Void> AllView = new Link<Void>("AllActivityLink") {
 			@Override
 			public void onClick() {
@@ -59,7 +64,7 @@ public class YearListPage extends WebPage {
 			}
 		};
 		add(InsertActivityLink);
-		
+
 
 	}
 }

@@ -1,4 +1,9 @@
 package PMPS.activity;
+/**
+ * <p>活動履歴に関する内容を格納するクラス。</p>
+ * @author boc
+ *
+ */
 
 public class ActivityBean {
 	private int projectid;

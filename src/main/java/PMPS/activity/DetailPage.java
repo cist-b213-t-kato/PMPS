@@ -20,6 +20,12 @@ import PMPS.Communication.BulletinDAO;
 import PMPS.Communication.UserPost;
 import PMPS.Communication.UserPostDAO;
 
+/**
+ * <p>活動の詳細を表示するページ</p>
+ * @author boc
+ *
+ */
+
 public class DetailPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 	IModel<String> commentModel;

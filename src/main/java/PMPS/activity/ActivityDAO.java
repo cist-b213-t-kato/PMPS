@@ -13,6 +13,12 @@ import java.util.List;
 
 import PMPS.DBsetting;
 
+/**
+ * <p>activityテーブル、projectdetailテーブル、commentテーブルにアクセスしデータのやり取りをするクラス</p>
+ *
+ * @author boc
+ *
+ */
 public class ActivityDAO {
 
 	public ActivityDAO() {
@@ -24,6 +30,12 @@ public class ActivityDAO {
 	}
 
 	//年度を引数に活動履歴を検索（一覧を表で表示するときに使用）
+	/**
+	 *
+	 * <p>activityテーブルから引数に渡した年度にあてはまる活動履歴をセレクトします。</p>
+	 * @param year
+	 * @return List&lt;ActivityBean>
+	 */
 	public static List<ActivityBean> select(int year) {
 
 		String sql = "SELECT * FROM activity " +
@@ -69,6 +81,10 @@ public class ActivityDAO {
 	}
 
 	//活動履歴をすべて表示
+	/**
+	 * activityテーブル全ての活動履歴をセレクトします。
+	 * @return List&lt;ActivityBean>
+	 */
 	public static List<ActivityBean> selectAll() {
 
 		String sql = "SELECT * FROM activity ORDER BY year desc";
@@ -111,6 +127,10 @@ public class ActivityDAO {
 	}
 
 	//年度をリストに入れて表示
+	/**
+	 * <p>activityテーブルから年度のみをセレクトしたものをList&ltInteger>で返します。<p>
+	 * @return List&ltInteger>
+	 */
 	public static List<Integer> selectYear() {
 		String sql = "SELECT year FROM activity GROUP BY year ORDER BY year desc";
 
@@ -132,6 +152,12 @@ public class ActivityDAO {
 	}
 
 	//活動の詳細を表示するときに使用(activityテーブルと結合している)
+	/**
+	 * <p>プロジェクトIDを引数にprojectdetailテーブルとactivityテーブルを結合しセレクトしたものを
+	 * List&ltDetailBean>で返します。</p>
+	 * @param ID
+	 * @return List&ltDetailBean>
+	 */
 	public static List<DetailBean> selectProjectDetail(int ID) {
 		String sql = "SELECT * FROM projectdetail "
 				+ "INNER JOIN activity "
@@ -174,6 +200,10 @@ public class ActivityDAO {
 	}
 
 	//活動リストの追加
+	/**
+	 * <p>ActivityBeanを引数にactivityテーブルにデータをインサートします。</p>
+	 * @param acb
+	 */
 	public static void insert(ActivityBean acb ) {
 		String sql = "insert into activity(projectname,leader,term,outline,link,grade,year) values(?,?,?,?,?,?,?)";
 
@@ -200,29 +230,12 @@ public class ActivityDAO {
 		}
 	}
 
-	//活動の詳細を追加する不採用
-	public static int insertProjectDetail(int projectid, String outline, String achievement, String impression) {
-		String sql = "INSERT INTO projectdetail values(?,?,?,?)";
-
-		int result = 0;
-
-		try (Connection conn = DriverManager.getConnection(DBsetting.URL, DBsetting.USER, DBsetting.PASSWORD);
-				PreparedStatement statement = conn.prepareStatement(sql);) {
-			statement.setInt(1, projectid);
-			statement.setString(2, outline);
-			statement.setString(3, achievement);
-			statement.setString(4, impression);
-
-			result = statement.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-
-	}
-
-	//活動の詳細を追加する採用
+	//活動の詳細を追加する
+	/**
+	 * <p>DetailBeanを引数にprojectdetailテーブルにデータをインサートします。</p>
+	 * @param details
+	 * @return int
+	 */
 	public int insertDetails(DetailBean details) {
 		String sql = "INSERT INTO projectdetail(outline,achievement,impression) values(?,?,?)";
 
@@ -242,6 +255,11 @@ public class ActivityDAO {
 	}
 
 	//詳細ページに書かれてるコメントをもってくる
+	/**
+	 * <p>プロジェクトIDを引数にcommentテーブルからセレクトしたものをList&ltCommentBean>で返します。</p>
+	 * @param ID
+	 * @return List&ltCommentBean>
+	 */
 	public static List<CommentBean> selectComment(int ID) {
 		String sql = "SELECT * FROM comment "
 				+ "WHERE projectid = ? ";
@@ -277,6 +295,13 @@ public class ActivityDAO {
 	}
 
 	//活動コメントを追加する
+	/**
+	 * <p>commentテーブルにprojectid、comment、usernameをインサートします。</p>
+	 * @param projectid
+	 * @param comment
+	 * @param username
+	 * @return int
+	 */
 	public static int insertComment(int projectid, String comment, String username) {
 		String sql = "INSERT INTO comment values(?,?,?,?)";
 

@@ -6,6 +6,11 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
+/**
+ * <p>活動履歴を追加するページ</p>
+ * @author boc
+ *
+ */
 public class InsertActivityPage extends WebPage {
 
 	/**

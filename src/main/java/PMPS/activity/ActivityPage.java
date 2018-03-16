@@ -11,6 +11,11 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 
+/**
+ * <p>活動履歴一覧を表示するページ</p>
+ * @author boc
+ *
+ */
 public class ActivityPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
@@ -56,6 +61,7 @@ public class ActivityPage extends WebPage {
 		};
 
 		add(activityListView);
+
 
 		Link<Void> InsertActivityLink = new Link<Void>("InsertActivityLink") {
 
