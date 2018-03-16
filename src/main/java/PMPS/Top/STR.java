@@ -1,5 +1,12 @@
 package PMPS.Top;
 
+/**
+ *
+ * <p>今後の活動予定で表示するために作成したクラスです</p>
+ * <p>tttはtodayの2日後の日です</p>
+ * @author uesugimasashi
+ *
+ */
 public class STR {
 	private String today;
 	private String tommolow;

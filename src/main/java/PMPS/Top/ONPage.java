@@ -21,6 +21,12 @@ import PMPS.Schedule.ScheduleDAO;
 import PMPS.Schedule.SchedulePage;
 import PMPS.activity.YearListPage;
 
+/**
+ *
+ * <p>PMPSのトップページを表示するクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class ONPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
@@ -207,10 +213,22 @@ public class ONPage extends WebPage {
 
 	}
 
+	/**
+	 *
+	 * <p>Scheduleを渡すと 開始時間と終了時間、本文を (12:00~13:00)英語 のような文字列に加工してStringで返すメソッドです</p>
+	 * @param s
+	 * @return String
+	 */
 	private String getRow(Schedule s) {
 		return "(" + s.getStartTime() + "~" + s.getEndTime() + ")" + s.getContent();
 	}
 
+	/**
+	 *
+	 * <p>List&lt;Schedule>を渡すと時系列順にListを変更して返すメソッドです</p>
+	 * @param list
+	 * @return List&lt;Schedule>
+	 */
 	private List<Schedule> swap(List<Schedule> list) {
 		if (!list.isEmpty() || list.size() == 1) {
 			for (int i = 1; i < list.size(); i++) {
