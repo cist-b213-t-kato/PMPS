@@ -3,9 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <title>活動履歴</title>
+<!-- 	↓Boostrap,jqueryの読み込み部分1 -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
+
+<!-- ↓CSS -->
+<style>
+/* ↓ロゴ＋メニューバー */
+header {
+	text-align: right;
+	background: #f0f8ff;
+	padding: 20px;
+	border: 1px solid #cccccc;
+}
+
+p a {
+	font-family: Century;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	position: absolute;
+	text-decoration: none;
+}
+
+p a:hover {
+	text-decoration: none;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 25px;
+	font-size: 30px;
+}
+/* ↑ロゴ＋メニューバー */
+table tbody tr td a{
+	font-size:30px;
+	color:#0000ff;
+}
+</style>
+<!-- ↑CSS  -->
 </head>
 <body>
+<!-- ↓メニューバー テンプレ-->
+	<header>
+		<p>
+			<a wicket:id="homeLink"><img src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"width="100" ,height="100"></a>
 
+		</p>
+		<nav>
+			<ul>
+				<li><a href="#">連絡</a></li>
+				<li><a href="#">スケジュール</a></li>
+				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="SignOutLink">ログアウト</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- ↑メニューバー テンプレ-->
 	<table>
 		<tbody>
 			<tr>
@@ -23,6 +81,12 @@
 
 	<button wicket:id="InsertActivityLink" class="btn btn-primary">履歴を追加</button>
 
-
+<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>

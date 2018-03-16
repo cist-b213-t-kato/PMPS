@@ -11,6 +11,9 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 
+import PMPS.LogIn.SignOutPage;
+import PMPS.Top.ONPage;
+
 public class ActivityPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
@@ -65,5 +68,34 @@ public class ActivityPage extends WebPage {
 			}
 		};
 		add(InsertActivityLink);
+		
+		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
+			
+
+			@Override
+			public void onClick() {
+				setResponsePage(new YearListPage());
+			}
+		};
+		add(ActivitySmallLink);
+
+		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
+			
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SignOutPage());
+			}
+		};
+		add(SignOutLink);
+
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
 	}
 }

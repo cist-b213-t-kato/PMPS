@@ -3,8 +3,12 @@ package PMPS.activity;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextArea;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+
+import PMPS.LogIn.SignOutPage;
+import PMPS.Top.ONPage;
 
 public class ActivityDetailsPage extends WebPage {
 	IModel<String> outlineModel;
@@ -36,6 +40,47 @@ public class ActivityDetailsPage extends WebPage {
 			}
 		};
 		add(form);
+		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
+
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new YearListPage());
+			}
+		};
+		add(ActivitySmallLink);
+
+		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
+
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SignOutPage());
+			}
+		};
+		add(SignOutLink);
+
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
 
 		TextArea<String> outlineField = new TextArea<>("outlineField", outlineModel);
 		form.add(outlineField);

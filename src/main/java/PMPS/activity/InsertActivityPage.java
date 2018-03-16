@@ -3,8 +3,12 @@ package PMPS.activity;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+
+import PMPS.LogIn.SignOutPage;
+import PMPS.Top.ONPage;
 
 public class InsertActivityPage extends WebPage {
 
@@ -53,10 +57,52 @@ public class InsertActivityPage extends WebPage {
 				bean.setLink(urlModel.getObject());
 				bean.setGrade(Integer.parseInt(gradeModel.getObject()));
 				ActivityDAO.insert(bean);
-				setResponsePage( new ActivityDetailsPage());
+				setResponsePage(new ActivityDetailsPage());
 			}
 		};
 		add(form);
+
+		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new YearListPage());
+			}
+		};
+		add(ActivitySmallLink);
+
+		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SignOutPage());
+			}
+		};
+		add(SignOutLink);
+
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
 
 		// name を入力する input type="text" 用のコンポーネント
 		TextField<String> projectNameField = new TextField<>("projectName", projectNameModel);
@@ -72,5 +118,6 @@ public class InsertActivityPage extends WebPage {
 		form.add(outlineField);
 		form.add(urlField);
 		form.add(gradeField);
+
 	}
 }
