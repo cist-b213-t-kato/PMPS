@@ -2,6 +2,7 @@ package PMPS.activity;
 
 import java.util.List;
 
+import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -11,6 +12,13 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
+
+import PMPS.UserAccount;
+import PMPS.UserAccountDAO;
+import PMPS.Communication.Bulletin;
+import PMPS.Communication.BulletinDAO;
+import PMPS.Communication.UserPost;
+import PMPS.Communication.UserPostDAO;
 
 public class DetailPage extends WebPage {
 	private static final long serialVersionUID = 1L;
@@ -75,7 +83,23 @@ public class DetailPage extends WebPage {
 				super.onSubmit();
 
 				commentList.add(new CommentBean());
-				ActivityDAO.insertComment(ID, commentModel.getObject(), nameModel.getObject());
+				Session session =  getSession();
+				UserAccount u = (UserAccount)session.getAttribute("user");
+				ActivityDAO.insertComment(ID, commentModel.getObject(), u.getUserName());
+				UserAccountDAO uadao = new UserAccountDAO();
+				if(uadao.checkUserName(nameModel.getObject())){
+				BulletinDAO bdao = new BulletinDAO();
+				Bulletin b = new Bulletin();
+				b.setMainText(u.getUserName()+"さんからコメントがきました。"+commentModel.getObject());
+				b.setSubject("[活動履歴]コメントがきました");
+				b.setUserId(u.getUserId());
+				bdao.insert(b);
+				UserPostDAO updao = new UserPostDAO();
+				UserPost up = new UserPost();
+				up.setBulletinId(bdao.selectBulletinId());
+				up.setUserId(uadao.selectUserId(nameModel.getObject()));
+				updao.insert(up);
+				}
 			}
 		};
 		add(form);

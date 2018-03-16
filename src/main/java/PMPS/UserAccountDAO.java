@@ -96,4 +96,50 @@ public class UserAccountDAO {
 		}
 		return null;
 	}
+
+	public String selectUserId(String name) {
+		String sql = "select * from useraccount where username = ?";
+
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+
+		try (Connection conn = DriverManager.getConnection(DBsetting.URL, DBsetting.USER, DBsetting.PASSWORD);
+				PreparedStatement statement = conn.prepareStatement(sql);) {
+			statement.setString(1, name);
+			ResultSet resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+				return resultSet.getString("userid");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
+	public Boolean checkUserName(String name) {
+		String sql = "select * from useraccount where username = ?";
+
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+
+		try (Connection conn = DriverManager.getConnection(DBsetting.URL, DBsetting.USER, DBsetting.PASSWORD);
+				PreparedStatement statement = conn.prepareStatement(sql);) {
+			statement.setString(1, name);
+			ResultSet resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
