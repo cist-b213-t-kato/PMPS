@@ -15,11 +15,16 @@ import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
 import PMPS.UserAccount;
+import PMPS.Communication.CommunicationNotReadPage;
+import PMPS.LogIn.SignOutPage;
+import PMPS.Top.ONPage;
+import PMPS.activity.YearListPage;
 import PMPS.define.DateTimeDefine;
 import PMPS.define.FullCalendarDefine.HEADER;
 import PMPS.define.FullCalendarDefine.METHOD;
@@ -68,6 +73,7 @@ public class FullcalendarPanel extends Panel {
 	private ModalWindow modalWindow;
 
 	public FullcalendarPanel(String id) {
+
 		super(id);
 
 
@@ -104,6 +110,7 @@ public class FullcalendarPanel extends Panel {
 		this.createEventTextColor = "#b0c4de";
 
 		Session session = getSession();
+
 
 		IModel<String> initJSModel = new AbstractReadOnlyModel<String>() {
 			private static final long serialVersionUID = 3211579631691093290L;

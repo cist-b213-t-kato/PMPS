@@ -1,17 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
-  <meta charset="UTF-8"/>
-  <title>InsertBulletinPage</title>
+<meta charset="UTF-8" />
+<title>掲示新規作成ページ</title>
+<!-- 	↓Boostrap,jqueryの読み込み部分1 -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
+
+<!-- ↓CSS -->
+<style>
+/* ↓ロゴ＋メニューバー */
+header {
+	text-align: right;
+	background: #f0f8ff;
+	padding: 20px;
+	border: 1px solid #cccccc;
+}
+
+p a {
+	font-family: Century;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	position: absolute;
+	text-decoration: none;
+}
+
+p a:hover {
+	text-decoration: none;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 25px;
+	font-size: 30px;
+}
+/* ↑ロゴ＋メニューバー */
+</style>
 </head>
 <body>
-  <h1>このページは掲示新規作成ページです。</h1>
-  <h2>この入力フォームで件名と本文、送り先を入力してください。</h2>
-<form wicket:id="form">
-  件名：<input type="text" wicket:id="subject"><br>
-  本文：<input type="text" wicket:id="mainText"><br>
-  送信先：<input type="text" wicket:id="receiverUserId"><br>
-  <button type="submit">データ送信</button>
-</form>
+	<!-- ↓メニューバー テンプレ-->
+	<header>
+		<p>
+			<a wicket:id="homeLink"><img
+				src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"
+				width="100" height="100"></a>
+
+		</p>
+		<nav>
+			<ul>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
+				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
+				<li><a wicket:id="SignOutLink">ログアウト</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- ↑メニューバー テンプレ-->
+	<h1>このページは掲示新規作成ページです。</h1>
+	<h2>この入力フォームで件名と本文、送り先を入力してください。</h2>
+	<form wicket:id="form">
+		<div class="form-group">
+			件名：<input type="text" wicket:id="subject" class="form-control" style="width:500px;" ><br>
+			送信先：<input type="text" wicket:id="receiverUserId" class="form-control" style="width:500px;"><br>
+			本文：<textarea type="text" cols="30" rows="3" wicket:id="mainText" class="form-control" style="width:500px; height:100px;"></textarea><br>
+			<button type="submit" class="btn btn-primary" >作成する</button>
+		</div>
+	</form>
+
+	<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>

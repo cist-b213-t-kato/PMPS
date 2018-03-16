@@ -1,26 +1,25 @@
-package PMPS.Schedule;
+package PMPS.Communication;
 
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 
-import PMPS.Communication.CommunicationNotReadPage;
 import PMPS.LogIn.SignOutPage;
+import PMPS.Schedule.SchedulePage;
 import PMPS.Top.ONPage;
 import PMPS.activity.YearListPage;
 
-public class SchedulePage extends WebPage{
+public class InsertSuccesPage extends WebPage {
+	public InsertSuccesPage() {
+		Link<Void> ONPageLink = new Link<Void>("ONPageLink") {
 
-	private static final long serialVersionUID = -3209326947790638454L;
-
-	/**
-	 * コンストラクタ
-	 */
-	public SchedulePage () {
-
-		this.add(new FullcalendarPanel("fullcalendarPanel"));
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(ONPageLink);
+		
+		
 //		↓ここからメニューバー+ロゴ
 		Link<Void> homeLink = new Link<Void>("homeLink") {
 
@@ -89,21 +88,5 @@ public class SchedulePage extends WebPage{
 		};
 		add(SignOutLink);
 		//ここまでメニューバー+ロゴ
-
-    }
-
-	/**
-	 * fullcalendarを読み込むために必要なリソースをヘッダーにrenderする
-	 */
-	@Override
-	public void renderHead(IHeaderResponse response) {
-		super.renderHead(response);
-
-		response.render(CssHeaderItem.forUrl("fullcalendar/css/fullcalendar.min.css"));
-		response.render(CssHeaderItem.forUrl("fullcalendar/css/calStyle.css"));
-		response.render(JavaScriptHeaderItem.forUrl("fullcalendar/lib/moment.min.js"));
-		response.render(JavaScriptHeaderItem.forUrl("fullcalendar/js/fullcalendar.min.js"));
-		response.render(JavaScriptHeaderItem.forUrl("fullcalendar/js/ja.js"));
-		response.render(JavaScriptHeaderItem.forUrl("fullcalendar/js/fullcalendarMethod.js"));
 	}
 }

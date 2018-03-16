@@ -12,8 +12,15 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.util.ListModel;
 
 import PMPS.UserAccount;
+import PMPS.LogIn.SignOutPage;
+import PMPS.Schedule.SchedulePage;
 import PMPS.Top.ONPage;
-
+import PMPS.activity.YearListPage;
+/**
+ * 私が書きました
+ * @author junpei
+ *
+ */
 public class CommunicationReadPage extends WebPage{
 
 	/**
@@ -71,17 +78,7 @@ public class CommunicationReadPage extends WebPage{
 		};
 		add(ReadListView);
 
-		Link<Void> homelink = new Link<Void>("homelink"){
-			/**
-			 *
-			 */
-			private static final long serialVersionUID = 4029383751906684759L;
 
-			public void onClick(){
-				setResponsePage(new ONPage());
-			}
-		};
-		add(homelink);
 
 		Link<Void> NotReadPageLink = new Link<Void>("NotReadPageLink") {
 			/**
@@ -108,5 +105,74 @@ public class CommunicationReadPage extends WebPage{
 			}
 		};
 		add(InsertBulletinPageLink);
+
+//		↓ここからメニューバー+ロゴ
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
+
+		Link<Void> NotReadSmallLink = new Link<Void>("NotReadSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new CommunicationNotReadPage());
+			}
+		};
+
+		add(NotReadSmallLink);
+
+
+
+		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new YearListPage());
+			}
+		};
+
+		add(ActivitySmallLink);
+
+
+		Link<Void> ScheduleSmallLink = new Link<Void>("ScheduleSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SchedulePage());
+			}
+		};
+
+		add(ScheduleSmallLink);
+
+		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SignOutPage());
+			}
+		};
+		add(SignOutLink);
+		//ここまでメニューバー+ロゴ
 	}
 }

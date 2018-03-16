@@ -2,17 +2,100 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<button wicket:id="homeLink" class="btn btn-primary"
-		style="position: absolute; left: 0px; top: 0px; width: 100px; height: 50px">HOME</button><br><br>
-<h2>掲示を表示する</h2>
-<span wicket:id="senderName"></span>さんからの掲示です。<br>
-<p wicket:id="mainText"></p>
+<title>掲示詳細</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 	↓Boostrap,jqueryの読み込み部分1 -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
 
-<button wicket:id="NotReadLink" class="btn btn-info"
-		style="position: relative; left: 100px; top: 100px; width: 500px; height: 100px">未読にして戻る</button>
+<!-- ↓CSS -->
+<style>
+/* ↓ロゴ＋メニューバー */
+header {
+	text-align: right;
+	background: #f0f8ff;
+	padding: 20px;
+	border: 1px solid #cccccc;
+}
+
+p a {
+	font-family: Century;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	position: absolute;
+	text-decoration: none;
+}
+
+p a:hover {
+	text-decoration: none;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 25px;
+	font-size: 30px;
+}
+/* ↑ロゴ＋メニューバー */
+
+div p{
+ 	font-size:30px;
+ }
+
+ div span{
+
+ 	font-size:20px;
+ }
+</style>
+<!-- ↑CSS  -->
+</head>
+
+<body>
+	<!-- ↓メニューバー テンプレ-->
+	<header>
+		<p>
+			<a wicket:id="homeLink"><img
+				src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"
+				width="100" height="100"></a>
+
+		</p>
+		<nav>
+			<ul>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
+				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
+				<li><a wicket:id="SignOutLink">ログアウト</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- ↑メニューバー テンプレ-->
+
+
+
+		<h1><span wicket:id="senderName"></span>さんからの掲示です。</h1>
+
 	<br>
+	<br>
+	<div>
+		<span>内容</span>
+		<p wicket:id="mainText"></p>
+	</div>
+
+
+	<button wicket:id="NotReadLink" class="btn btn-info"
+		style="position: relative; left: 100px; top: 100px; width: 300px; height: 80px">未読にして戻る</button>
+	<br>
+	<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>
