@@ -21,6 +21,11 @@ import PMPS.UserAccount;
 import PMPS.define.FullCalendarDefine.CALLBACK;
 
 
+/**
+ * <p>フルカレンダーのModalWindowの処理を記載したクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class FullcalendarModalInfoPanel extends Panel {
 	private static final long serialVersionUID = 6568469572592001217L;
 

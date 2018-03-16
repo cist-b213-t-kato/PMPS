@@ -7,6 +7,12 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
+/**
+ *
+ * <p>フルカレンダーに必要なファイルを読み込みheaderに記載するクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class FullcalendarLoad extends AbstractDefaultAjaxBehavior{
 
 	private static final long serialVersionUID = 762063241319668086L;
@@ -14,7 +20,6 @@ public class FullcalendarLoad extends AbstractDefaultAjaxBehavior{
 	public FullcalendarLoad() {
 
 	}
-
 	@Override
 	public void renderHead(Component component, IHeaderResponse response) {
 		super.renderHead(component, response);

@@ -13,6 +13,12 @@ import java.util.List;
 
 import PMPS.DBsetting;
 
+/**
+ *
+ * <p>Scheduleテーブルにアクセスし、データのやりとりをするクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class ScheduleDAO {
 	public ScheduleDAO() {
 		try {
@@ -31,6 +37,15 @@ public class ScheduleDAO {
 //		}
 //	}
 
+	/**
+	 *
+	 * <p>userIdと年月日を渡すと、ユーザーの予定をリストで返すメソッドです</p>
+	 * @param userId
+	 * @param year
+	 * @param month
+	 * @param day
+	 * @return List&lt;Schedule>
+	 */
 	public List<Schedule> select(String userId, int year, int month, int day) {
 		String sql = "select * from schedule where to_date(starttime::text,'YYYY/MM/DD') = ? and userid = ?";
 		List<Schedule> sList = new ArrayList<Schedule>();
@@ -77,6 +92,14 @@ public class ScheduleDAO {
 	}
 
 
+	/**
+	 *
+	 * <p>userIdと年月を渡すとユーザーの予定を1ヶ月分Listで返すメソッドです</p>
+	 * @param userId
+	 * @param year
+	 * @param month
+	 * @return List&lt;Event>
+	 */
 	public List<Event> selectMonthTask(String userId, int year, int month) {
 		String sql = "select * from schedule where to_char(starttime,'YYYY/MM') = ? and userid = ?";
 		String monthstr = String.valueOf(month);
@@ -109,12 +132,21 @@ public class ScheduleDAO {
 		return eList;
 	}
 
+	/**
+	 *
+	 * <p>Timestampをyyy/MM/dd/HH:mm:ssにフォーマットしてStringで返すメソッドです</p>
+	 * @param timestamp
+	 * @return String
+	 */
 	private String formatTimestampToString(Timestamp timestamp) {
 		return new SimpleDateFormat("yyy/MM/dd/HH:mm:ss").format(timestamp);
 	}
 
-	/*
-	 * 時間の文字列をfullcalendarに対応するように変換して返す
+	/**
+	 *
+	 * <p>時間の文字列をfullcalendarに対応するように変換して返すメソッドです</p>
+	 * @param time
+	 * @return String
 	 */
 	public String encodeToFullcalendarTime(String time) {
         StringBuilder sb = new StringBuilder(time);
@@ -124,6 +156,12 @@ public class ScheduleDAO {
         return sb.toString();
 	}
 
+	/**
+	 *
+	 * <p>Scheduleを渡すとDBにデータを追加するメソッドです</p>
+	 * @param scedule
+	 * @return int
+	 */
 	public int insertSchedule(Schedule scedule) {
 		String sql = "INSERT INTO schedule(content,starttime,endtime,userid) "
 				+ "VALUES(?,?,?,?)";

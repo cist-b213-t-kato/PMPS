@@ -11,6 +11,12 @@ import PMPS.LogIn.SignOutPage;
 import PMPS.Top.ONPage;
 import PMPS.activity.YearListPage;
 
+/**
+ *
+ * <p>SchedulePageを読み込むクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class SchedulePage extends WebPage{
 
 	private static final long serialVersionUID = -3209326947790638454L;
