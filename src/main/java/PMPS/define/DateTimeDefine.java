@@ -1,5 +1,11 @@
 package PMPS.define;
 
+/**
+ * <p>TimestampをLocalDateTimeのフォーマットに合わせるためのクラスです</p>
+ * <p>インスタンス生成せず、直接変数を呼んでください</p>
+ * @author uesugimasashi
+ *
+ */
 public class DateTimeDefine {
 
 	/**

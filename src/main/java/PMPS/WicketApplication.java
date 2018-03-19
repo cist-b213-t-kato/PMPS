@@ -29,7 +29,9 @@ public class WicketApplication extends WebApplication
 	public void init()
 	{
 		super.init();
-		//mountPage("/home",YearListPage.class);
+
+		mountPage("/home",LogInPage.class);
+
 		// add your configuration here
 	}
 }

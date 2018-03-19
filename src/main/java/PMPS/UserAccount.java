@@ -2,6 +2,12 @@ package PMPS;
 
 import java.io.Serializable;
 
+/**
+ *
+ * <p>ユーザーの情報が詰まったクラスです<p>
+ * @author uesugimasashi
+ *
+ */
 public class UserAccount implements Serializable {
 	private static final long serialVersionUID = 6590180145565679411L;
 	private String userId;

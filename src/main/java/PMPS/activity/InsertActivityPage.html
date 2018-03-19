@@ -2,19 +2,85 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
   <meta charset="UTF-8"/>
-  <title>InsertActivityPage</title>
+  <title>活動履歴追加ページ</title>
+  <!-- 	↓Boostrap,jqueryの読み込み部分1 -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
+
+<!-- ↓CSS -->
+<style>
+/* ↓ロゴ＋メニューバー */
+header {
+	text-align: right;
+	background: #f0f8ff;
+	padding: 20px;
+	border: 1px solid #cccccc;
+}
+
+p a {
+	font-family: Century;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	position: absolute;
+	text-decoration: none;
+}
+
+p a:hover {
+	text-decoration: none;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 25px;
+	font-size: 30px;
+}
+/* ↑ロゴ＋メニューバー */
+
+</style>
 </head>
 <body>
+<!-- ↓メニューバー テンプレ-->
+	<header>
+		<p>
+			<a wicket:id="homeLink"><img src="http://drive.google.com/uc?export=view&id=1gQG_gAh-JFw6ZZp5gHXBBTwMImQDczXh"width="100" ,height="100"></a>
+
+		</p>
+		<nav>
+			<ul>
+				<li><a wicket:id="NotReadSmallLink">連絡</a></li>
+				<li><a wicket:id="ActivitySmallLink">活動履歴</a></li>
+				<li><a wicket:id="ScheduleSmallLink">スケジュール</a></li>
+				<li><a wicket:id="SignOutLink">ログアウト</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- ↑メニューバー テンプレ-->
   <h1>このページは活動履歴追加ページです。</h1>
   <h2>この入力フォームでプロジェクト名と担当者、期間、概要、DriveのURLを入力してください。</h2>
-<form wicket:id="form">
-  プロジェクト名：<input type="text" wicket:id="projectName"><br>
-  担当者：<input type="text" wicket:id="leader"><br>
-  期間：<input type="text" wicket:id="term"><br>
-  概要：<input type="text" wicket:id="outline"><br>
-  GoogleDriveのURL：<input type="text" wicket:id="url"><br>
-   学年：<input type="text" wicket:id="grade">
-  <button type="submit">次へ</button>
+<form wicket:id="form" class="form-horizontal">
+<div class="form-group">
+
+  プロジェクト名<input type="text" wicket:id="projectName" class="form-control" style="width:200px"><br>
+  担当者<input type="text" wicket:id="leader" class="form-control" style="width:200px"><br>
+  期間<input type="text" wicket:id="term" class="form-control" style="width:200px"><br>
+  概要<input type="text" wicket:id="outline" class="form-control" style="width:200px"><br>
+  GoogleDriveのURL<input type="text" wicket:id="url" class="form-control" style="width:200px"><br>
+   学年<input type="text" wicket:id="grade" class="form-control" style="width:200px"><br>
+  <button type="submit" class="btn btn-primary" >次へ</button>
+
+  </div>
 </form>
+<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>

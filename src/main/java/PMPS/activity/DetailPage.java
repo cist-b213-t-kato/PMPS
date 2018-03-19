@@ -6,7 +6,9 @@ import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.IModel;
@@ -17,8 +19,12 @@ import PMPS.UserAccount;
 import PMPS.UserAccountDAO;
 import PMPS.Communication.Bulletin;
 import PMPS.Communication.BulletinDAO;
+import PMPS.Communication.CommunicationNotReadPage;
 import PMPS.Communication.UserPost;
 import PMPS.Communication.UserPostDAO;
+import PMPS.LogIn.SignOutPage;
+import PMPS.Schedule.SchedulePage;
+import PMPS.Top.ONPage;
 
 /**
  * <p>活動の詳細を表示するページ</p>
@@ -109,10 +115,79 @@ public class DetailPage extends WebPage {
 			}
 		};
 		add(form);
+		
+//		↓ここからメニューバー+ロゴ
+		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			@Override
+			public void onClick() {
+				setResponsePage(new ONPage());
+			}
+		};
+		add(homeLink);
+
+		Link<Void> NotReadSmallLink = new Link<Void>("NotReadSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new CommunicationNotReadPage());
+			}
+		};
+
+		add(NotReadSmallLink);
+
+
+
+		Link<Void> ActivitySmallLink = new Link<Void>("ActivitySmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new YearListPage());
+			}
+		};
+
+		add(ActivitySmallLink);
+
+
+		Link<Void> ScheduleSmallLink = new Link<Void>("ScheduleSmallLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SchedulePage());
+			}
+		};
+
+		add(ScheduleSmallLink);
+
+		Link<Void> SignOutLink = new Link<Void>("SignOutLink") {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -5294390084905468090L;
+
+			@Override
+			public void onClick() {
+				setResponsePage(new SignOutPage());
+			}
+		};
+		add(SignOutLink);
+		//ここまでメニューバー+ロゴ
 
 		TextField<String> nameField = new TextField<>("nameField", nameModel);
 		form.add(nameField);
-		TextField<String> bodyField = new TextField<>("bodyField", commentModel);
+		TextArea<String> bodyField = new TextArea<>("bodyField", commentModel);
 		form.add(bodyField);
 	}
 

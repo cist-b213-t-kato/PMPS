@@ -1,5 +1,11 @@
 package PMPS.define;
 
+/**
+ *
+ * <p>フルカレンダーを使用するためにheaderとview、メソッド、コールバックの処理を書いたクラスです</p>
+ * @author uesugimasashi
+ *
+ */
 public class FullCalendarDefine {
 
 	public static final String ID_ATTRIBUTE = "#"; // ID属性
