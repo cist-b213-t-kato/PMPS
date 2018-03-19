@@ -5,6 +5,11 @@ import org.apache.wicket.markup.html.link.Link;
 
 
 
+/**
+ * ログインに失敗すると表示されるページです
+ * @author junpei
+ *
+ */
 public class LogInCheckPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
