@@ -12,6 +12,12 @@ import kagidai.pmps.UserAccount;
 import kagidai.pmps.UserAccountDAO;
 import kagidai.pmps.schedule.ONPage;
 
+/**
+ * システムを起動したときに最初に表示されるページであり、
+ * ログインも行うページ。
+ * @author junpei
+ *
+ */
 public class LogInPage extends WebPage {
 	  private static final long serialVersionUID = 1L;
 
@@ -44,6 +50,8 @@ public class LogInPage extends WebPage {
 //						session.setAttribute("user",(Serializable) user);
 						session.setAttribute("user", user);
 						setResponsePage((IRequestablePage) new ONPage());
+					}else {
+						setResponsePage(new LogInCheckPage());
 					}
 				}
 			};

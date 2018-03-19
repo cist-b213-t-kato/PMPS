@@ -2,10 +2,37 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
   <meta charset="UTF-8"/>
-  <title>LogInCheckPage</title>
+  <title>ログイン失敗</title>
+  <!-- 	↓Boostrap,jqueryの読み込み部分1 -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 	↑Boostrap,jqueryの読み込み部分1 -->
+
+  <!-- ↓CSS -->
+<style>
+div1 {
+	font-family: sans-serif;
+}
+</style>
+<!-- ↑CSS  -->
 </head>
 <body>
-<h2>Formの投稿結果を表示する</h2>
-<p wicket:id="userId"></p>
+<div1 style="position: relative; top: 0px; left: 600px;"> <font
+		size="200">PMPS</font> </div1>
+
+<h1>ログインに失敗しました</h1>
+<h2>空欄もしくはID,パスワードが間違っています</h2>
+<button wicket:id="homeLink" class="btn btn-primary ">再ログイン</button>
+
+<!-- ↓Bootstrap,jquery読み込み部分2 -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- ↑Bootstrap,jquery読み込み部分2 -->
 </body>
 </html>

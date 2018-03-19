@@ -11,6 +11,11 @@ import org.apache.wicket.request.component.IRequestablePage;
 import PMPS.UserAccount;
 import PMPS.UserAccountDAO;
 import PMPS.Top.ONPage;
+/**
+ * システムを起動した際、最初に出てくるページです。
+ * @author junpei
+ *
+ */
 public class LogInPage extends WebPage {
 	  private static final long serialVersionUID = 1L;
 
@@ -43,6 +48,8 @@ public class LogInPage extends WebPage {
 //						session.setAttribute("user",(Serializable) user);
 						session.setAttribute("user", user);
 						setResponsePage((IRequestablePage) new ONPage());
+					}else {
+						setResponsePage(new LogInCheckPage());
 					}
 				}
 			};

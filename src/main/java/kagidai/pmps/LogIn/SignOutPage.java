@@ -3,6 +3,11 @@ package kagidai.pmps.LogIn;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 
+/**
+ * ログアウトしたときに表示されるページです
+ * @author junpei
+ *
+ */
 public class SignOutPage extends WebPage{
 	/**
 	 *
