@@ -57,7 +57,7 @@ public class ActivityPage extends WebPage {
 				item.add(new Label("term", item.getModelObject().getTerm()));
 				item.add(new Label("outline", item.getModelObject().getOutline()));
 
-				Label link = new Label("link", item.getModelObject().getLink());
+				Label link = new Label("link", "リンク");
 				link.add(new AttributeModifier("href", new Model<String>(item.getModelObject().getLink())));
 				item.add(link);
 
