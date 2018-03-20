@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
@@ -136,14 +137,33 @@ public class InsertActivityPage extends WebPage {
 		add(SignOutLink);
 		//ここまでメニューバー+ロゴ
 
+		FeedbackPanel feedbackpanel = new FeedbackPanel("feedback");
+		add(feedbackpanel);//空白があった場合警告がでてくるパネル
 
 		// name を入力する input type="text" 用のコンポーネント
 		TextField<String> projectNameField = new TextField<>("projectName", projectNameModel);
+		projectNameField.setLabel(Model.of("プロジェクト名"));
+		projectNameField.setRequired(true);//空白を禁止する
+
 		TextField<String> leaderField = new TextField<>("leader", leaderModel);
+		leaderField.setLabel(Model.of("担当者"));
+		leaderField.setRequired(true);
+
 		TextField<String> termField = new TextField<>("term", termModel);
+		termField.setLabel(Model.of("期間"));
+		termField.setRequired(true);
+
 		TextField<String> outlineField = new TextField<>("outline", outlineModel);
+		outlineField.setLabel(Model.of("概要"));
+		outlineField.setRequired(true);
+
 		TextField<String> urlField = new TextField<>("url", urlModel);
+		urlField.setLabel(Model.of("GoogleDriveへのURL"));
+		urlField.setRequired(true);
+
 		TextField<String> gradeField = new TextField<>("grade", gradeModel);
+		gradeField.setLabel(Model.of("学年"));
+		gradeField.setRequired(true);
 
 		form.add(projectNameField);
 		form.add(leaderField);

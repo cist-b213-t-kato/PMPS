@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
@@ -114,12 +115,22 @@ public class ActivityDetailsPage extends WebPage {
 		};
 		add(SignOutLink);
 		//ここまでメニューバー+ロゴ
+		FeedbackPanel feedbackpanel = new FeedbackPanel("feedback");
+		add(feedbackpanel);//空白があった場合警告がでてくるパネル
 
 		TextArea<String> outlineField = new TextArea<>("outlineField", outlineModel);
+		outlineField.setLabel(Model.of("概要"));
+		outlineField.setRequired(true);
 		form.add(outlineField);
+
 		TextArea<String> achievementField = new TextArea<>("achievementField", achievementModel);
+		achievementField.setLabel(Model.of("成果"));
+		achievementField.setRequired(true);
 		form.add(achievementField);
+
 		TextArea<String> impressionField = new TextArea<>("impressionField", impressionModel);
+		impressionField.setLabel(Model.of("ひとこと"));
+		impressionField.setRequired(true);
 		form.add(impressionField);
 	}
 }

@@ -11,16 +11,16 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 
+import PMPS.Communication.CommunicationNotReadPage;
+import PMPS.LogIn.SignOutPage;
+import PMPS.Schedule.SchedulePage;
+import PMPS.Top.ONPage;
+
 /**
  * <p>活動履歴一覧を表示するページ</p>
  * @author boc
  *
  */
-
-import PMPS.Communication.CommunicationNotReadPage;
-import PMPS.LogIn.SignOutPage;
-import PMPS.Schedule.SchedulePage;
-import PMPS.Top.ONPage;
 
 public class ActivityPage extends WebPage {
 	private static final long serialVersionUID = 1L;
@@ -37,6 +37,7 @@ public class ActivityPage extends WebPage {
 				}
 			}
 		};
+
 
 		ListView<ActivityBean> activityListView = new ListView<ActivityBean>("activityList", listModel) {
 			@Override
