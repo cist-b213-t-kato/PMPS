@@ -1,5 +1,6 @@
 package PMPS.activity;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -19,7 +20,7 @@ import PMPS.DBsetting;
  * @author boc
  *
  */
-public class ActivityDAO {
+public class ActivityDAO implements Serializable{
 
 	public ActivityDAO() {
 		try {

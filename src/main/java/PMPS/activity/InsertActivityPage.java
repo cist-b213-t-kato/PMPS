@@ -1,6 +1,10 @@
 package PMPS.activity;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
@@ -29,7 +33,7 @@ public class InsertActivityPage extends WebPage {
 	private IModel<String> termModel;
 	private IModel<String> outlineModel;
 	private IModel<String> urlModel;
-	private IModel<String> gradeModel;
+	private IModel<Integer> gradeModel;
 
 	/**
 	 * コンストラクタ.
@@ -40,7 +44,7 @@ public class InsertActivityPage extends WebPage {
 		termModel = Model.of("");
 		outlineModel = Model.of("");
 		urlModel = Model.of("");
-		gradeModel = Model.of("");
+		gradeModel = Model.of();
 
 		// Formタグ用の Form コンポーネント
 		Form<Void> form = new Form<Void>("form") {
@@ -58,12 +62,15 @@ public class InsertActivityPage extends WebPage {
 				System.out.println("gradeModel  : " + gradeModel.getObject());
 				//	ActivityDAO dao = new ActivityDAO();
 				ActivityBean bean = new ActivityBean();
+
 				bean.setProjectname(projectNameModel.getObject());
 				bean.setLeader(leaderModel.getObject());
 				bean.setTerm(termModel.getObject());
 				bean.setOutline(outlineModel.getObject());
 				bean.setLink(urlModel.getObject());
-				bean.setGrade(Integer.parseInt(gradeModel.getObject()));
+				bean.setGrade(gradeModel.getObject());
+//				Session activitySession = Session.get();
+//				activitySession.setAttribute("activitySession", bean);
 				ActivityDAO.insert(bean);
 				setResponsePage(new ActivityDetailsPage());
 			}
@@ -149,9 +156,11 @@ public class InsertActivityPage extends WebPage {
 		leaderField.setLabel(Model.of("担当者"));
 		leaderField.setRequired(true);
 
-		TextField<String> termField = new TextField<>("term", termModel);
-		termField.setLabel(Model.of("期間"));
-		termField.setRequired(true);
+		List<String> termList = Arrays.asList(new String[]{"春学期", "秋学期"});
+		DropDownChoice<String> termChoice = new DropDownChoice<String>("term", termModel,termList);
+//		TextField<String> termField = new TextField<>("term", termModel);
+		termChoice.setLabel(Model.of("期間"));
+		termChoice.setRequired(true);
 
 		TextField<String> outlineField = new TextField<>("outline", outlineModel);
 		outlineField.setLabel(Model.of("概要"));
@@ -161,16 +170,18 @@ public class InsertActivityPage extends WebPage {
 		urlField.setLabel(Model.of("GoogleDriveへのURL"));
 		urlField.setRequired(true);
 
-		TextField<String> gradeField = new TextField<>("grade", gradeModel);
-		gradeField.setLabel(Model.of("学年"));
-		gradeField.setRequired(true);
+		List<Integer> gradeList = Arrays.asList(new Integer[]{2, 3});
+		DropDownChoice<Integer> gradeChoice = new DropDownChoice<Integer>("grade",gradeModel,gradeList);
+//		TextField<String> gradeField = new TextField<>("grade", gradeModel);
+		gradeChoice.setLabel(Model.of("学年"));
+		gradeChoice.setRequired(true);
 
 		form.add(projectNameField);
 		form.add(leaderField);
-		form.add(termField);
+		form.add(termChoice);
 		form.add(outlineField);
 		form.add(urlField);
-		form.add(gradeField);
+		form.add(gradeChoice);
 
 	}
 }
