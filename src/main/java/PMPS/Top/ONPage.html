@@ -19,10 +19,17 @@
 
 		var month = hiduke.getMonth() + 1;
 		var day = hiduke.getDate();
+
+		  hiduke.setDate(hiduke.getDate() + 1);
+		  var month2 = hiduke.getMonth() + 1;
+		  var day2   = hiduke.getDate();
+
+		  var ttt = day2+1;
+
 		document.getElementById("today").innerHTML = month + "月" + day + "日";
-		document.getElementById("tommolow").innerHTML = month + "月" + (day + 1)
+		document.getElementById("tommolow").innerHTML = month2 + "月" + day2
 				+ "日";
-		document.getElementById("ttt").innerHTML = month + "月" + (day + 2)
+		document.getElementById("ttt").innerHTML = month2 + "月" + ttt
 				+ "日";
 	}
 </script>

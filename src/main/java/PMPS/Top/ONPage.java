@@ -2,7 +2,6 @@ package PMPS.Top;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.apache.wicket.Session;
@@ -15,6 +14,7 @@ import org.apache.wicket.model.util.ListModel;
 
 import PMPS.UserAccount;
 import PMPS.Communication.CommunicationNotReadPage;
+import PMPS.LogIn.LogInPage;
 import PMPS.LogIn.SignOutPage;
 import PMPS.Schedule.Schedule;
 import PMPS.Schedule.ScheduleDAO;
@@ -32,6 +32,11 @@ public class ONPage extends WebPage {
 
 	public ONPage() {
 
+		Session session = getSession();
+		UserAccount user = (UserAccount) session.getAttribute("user");
+
+		if(user!=null){
+
 		ListModel<STR> ScheduleModel = new ListModel<STR>() {
 			/**
 			 *
@@ -41,27 +46,17 @@ public class ONPage extends WebPage {
 			@Override
 			public List<STR> getObject() {
 				ScheduleDAO sdao = new ScheduleDAO();
-				Session session = getSession();
-				UserAccount user = (UserAccount) session.getAttribute("user");
 				List<STR> sList = new ArrayList<STR>();
 				List<Schedule> todayList = new ArrayList<>();
 				List<Schedule> tommolowList = new ArrayList<>();
 				List<Schedule> tttList = new ArrayList<>();
 
 				LocalDateTime ldt = LocalDateTime.now();
+				LocalDateTime d2 = ldt.plusDays(1);
+				LocalDateTime d3 = ldt.plusDays(2);
 				todayList = sdao.select(user.getUserId(), ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
-
-				Calendar c2day = Calendar.getInstance();
-				c2day.set(ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
-				c2day.add(Calendar.DAY_OF_MONTH, 1);
-				tommolowList = sdao.select(user.getUserId(), c2day.get(Calendar.YEAR), c2day.get(Calendar.MONTH),
-						c2day.get(Calendar.DAY_OF_MONTH));
-
-				Calendar c3day = Calendar.getInstance();
-				c3day.set(ldt.getYear(), ldt.getMonthValue(), ldt.getDayOfMonth());
-				c3day.add(Calendar.DAY_OF_MONTH, 2);
-				tttList = sdao.select(user.getUserId(), c3day.get(Calendar.YEAR), c3day.get(Calendar.MONTH),
-						c3day.get(Calendar.DAY_OF_MONTH));
+				tommolowList = sdao.select(user.getUserId(), d2.getYear(), d2.getMonthValue(), d2.getDayOfMonth());
+				tttList = sdao.select(user.getUserId(), d3.getYear(), d3.getMonthValue(), d3.getDayOfMonth());
 
 				todayList = swap(todayList);
 				tommolowList = swap(tommolowList);
@@ -129,6 +124,11 @@ public class ONPage extends WebPage {
 
 		//		↓ここからメニューバー+ロゴ
 		Link<Void> homeLink = new Link<Void>("homeLink") {
+
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = -3756497445338731145L;
 
 			@Override
 			public void onClick() {
@@ -210,6 +210,9 @@ public class ONPage extends WebPage {
 			}
 		};
 		add(scheduleView);
+		}else{
+			setResponsePage(new LogInPage());
+		}
 
 	}
 

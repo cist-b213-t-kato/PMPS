@@ -157,9 +157,10 @@ INSERT INTO comment VALUES (4,'とてもよき活動なり','柳生但馬守宗�
 INSERT INTO comment VALUES (4,'ありがとうございます！','矢田修弘','2018-03-01');
 
 ------------------------------------スケジュール------------------------------------------------------------------------------
-insert into schedule(content,starttime,endtime,userid) values('2年生プロメン発表会','2018-03-31 17:00:00','2018-03-031 18:00:00','b2150220');
-insert into schedule(content,starttime,endtime,userid) values('3年生プロメン発表会','2018-03-31 18:00:01','2018-03-031 18:45:00','b2150220');
-insert into schedule(content,starttime,endtime,userid) values('お疲れ様会','2018-04-01 13:13:11','2018-04-01 23:43:32','b2150220');
-insert into schedule(content,starttime,endtime,userid) values('発表練習','2018-03-31 13:00:00','2018-03-31 15:00:00','b2150220');
+insert into schedule(content,starttime,endtime,userid) values('発表練習','2018-03-31 7:00:00','2018-03-31 12:00:00','b2150220');
+insert into schedule(content,starttime,endtime,userid) values('2年生プロメン発表会','2018-03-31 13:00:00','2018-03-31 15:00:00','b2150220');
+insert into schedule(content,starttime,endtime,userid) values('3年生プロメン発表会','2018-03-31 15:00:01','2018-03-31 17:00:00','b2150220');
+insert into schedule(content,starttime,endtime,userid) values('お疲れ様会','2018-04-01 1:13:11','2018-04-01 23:43:32','b2150220');
+
 
 
